@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Futbol-ElTopo - Gestión de canchas</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Futbol-ElTopo">
+      <span class="brand-mark">F</span>
+      <span>Futbol<span>-ElTopo</span></span>
+    </a>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="nav-item active" data-view="canchas">
+        <span class="nav-icon">&#9638;</span>
+        <span>Canchas</span>
+      </button>
+      <button class="nav-item" data-view="complejos">
+        <span class="nav-icon">&#9670;</span>
+        <span>Complejos</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span class="status-dot"></span>
+      Sistema disponible
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Panel de administración</p>
+        <h1 id="page-title">Canchas</h1>
+      </div>
+      <button class="primary-button" id="add-button">
+        <span>+</span> Nueva cancha
+      </button>
+    </header>
+
+    <section class="stats" id="stats"></section>
+
+    <section class="panel">
+      <div class="toolbar">
+        <label class="search">
+          <span aria-hidden="true">&#128269;</span>
+          <input id="search" type="search" placeholder="Buscar por nombre o superficie">
+        </label>
+        <select id="complex-filter" aria-label="Filtrar por complejo">
+          <option value="">Todos los complejos</option>
+        </select>
+        <select id="type-filter" aria-label="Filtrar por tipo">
+          <option value="">Todos los tipos</option>
+          <option value="F5">F5</option>
+          <option value="F7">F7</option>
+          <option value="F11">F11</option>
+        </select>
+      </div>
+
+      <div id="content" class="content" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="form-dialog">
+    <form id="record-form" method="dialog">
+      <div class="dialog-header">
+        <div>
+          <p class="eyebrow">Datos del registro</p>
+          <h2 id="dialog-title">Nueva cancha</h2>
+        </div>
+        <button type="button" class="icon-button" id="close-dialog" aria-label="Cerrar">&times;</button>
+      </div>
+      <div id="form-fields"></div>
+      <p class="form-error" id="form-error"></p>
+      <div class="dialog-actions">
+        <button type="button" class="secondary-button" id="cancel-dialog">Cancelar</button>
+        <button type="submit" class="primary-button" id="save-button">Guardar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
