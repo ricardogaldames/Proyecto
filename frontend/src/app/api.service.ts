@@ -58,3 +58,5 @@ export class ApiService {
     return this.http.post<{ answer: string }>(`${API_BASE_URL}/chat`, { message });
   }
 }
+
+const API_BASE_URL = 'https://proyecto-dgtd.onrender.com';
